@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  backend:
+    image: backend:v1
+    container_name: backend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/student_db
+      - SPRING_DATASOURCE_USERNAME: root
+      - SPRING_DATASOURCE_PASSWORD: root
+    restart: always
+    networks:
+      - my-network
+  frontend:
+    image: frontend:v1
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - my-network
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD: root
+      - MYSQL_DATABASE: student_db
+    restart: always
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
