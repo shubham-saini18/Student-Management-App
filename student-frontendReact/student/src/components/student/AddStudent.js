@@ -16,8 +16,8 @@ const AddStudent = () => {
 	const {
 		firstName,
 		lastName,
-		email,
 		gender,
+		email,
 	} = student;
 
 	const handleInputChange = (e) => {
@@ -76,16 +76,16 @@ const AddStudent = () => {
 				<div className="input-group mb-5">
 					<label
 						className="input-group-text"
-						htmlFor="email">
-						Your Email
+						htmlFor="gender">
+						Gender
 					</label>
 					<input
 						className="form-control col-sm-6"
-						type="email"
-						name="email"
-						id="email"
+						type="gender"
+						name="gender"
+						id="gender"
 						required
-						value={email}
+						value={gender}
 						onChange={(e) => handleInputChange(e)}
 					/>
 				</div>
@@ -93,16 +93,16 @@ const AddStudent = () => {
 				<div className="input-group mb-5">
 					<label
 						className="input-group-text"
-						htmlFor="gender">
-						Gender
+						htmlFor="email">
+						Your Email
 					</label>
 					<input
 						className="form-control col-sm-6"
 						type="text"
-						name="gender"
-						id="gender"
+						name="email"
+						id="email"
 						required
-						value={gender}
+						value={email}
 						onChange={(e) => handleInputChange(e)}
 					/>
 				</div>
