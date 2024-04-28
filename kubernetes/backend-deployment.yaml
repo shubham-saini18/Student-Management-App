@@ -19,24 +19,23 @@ spec:
         - containerPort: 8081
           name: backend
         env:
-        - name: DB_HOST   
-              valueFrom:
-                configMapKeyRef:
-                  name: db-config
-                  key: host
-        - name: DB_NAME  
-              valueFrom :
-                configMapKeyRef:
-                  name: db-config
-                  key: dbname
-            - name: DB_USERNAME  
-              valueFrom :
-                secretKeyRef:
-                  name: mysql-secrets
-                  key: username
-            - name: DB_PASSWORD 
-              valueFrom :
-                secretKeyRef:
-                  name: mysql-secrets
-                  key: password
-     
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: host
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: db-config
+              key: dbname
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: password
