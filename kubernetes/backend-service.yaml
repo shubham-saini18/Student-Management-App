@@ -4,12 +4,10 @@ metadata:
   name: backend-svc
   labels:
     app: backend
-    tier: backend
 spec:
   ports:
     - port: 8081
       targetPort: 8081
   selector:
     app: backend
-    tier: backend
   type: ClusterIP
